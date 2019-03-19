@@ -102,6 +102,7 @@ heroku apps:destroy --app APP
 heroku apps:info
 heroku apps:open             # open in browser
 heroku apps:rename NEWNAME
+git remote rename heroku production #rename remote to new name, e.g. 'heroku' -> 'production'
 ```
 
 ### `maintenance`
@@ -169,6 +170,9 @@ heroku addons:add wildcard_domains
 ```
 
 ## Other tricks
+
+### Load .envs to Config Vars
+heroku config:set $(cat .env | sed '/^$/d; /#[[:print:]]*$/d')
 
 ### htpasswd (for PHP apps)
 
