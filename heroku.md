@@ -172,7 +172,9 @@ heroku addons:add wildcard_domains
 ## Other tricks
 
 ### Load .envs to Config Vars
+```bash
 heroku config:set $(cat .env | sed '/^$/d; /#[[:print:]]*$/d')
+```
 
 ### htpasswd (for PHP apps)
 
