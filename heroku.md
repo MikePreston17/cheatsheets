@@ -176,6 +176,19 @@ heroku addons:add wildcard_domains
 heroku config:set $(cat .env | sed '/^$/d; /#[[:print:]]*$/d')
 ```
 
+### Copying configs from one app to another
+1. Export existing app’s variables to config.txt
+
+```bash
+heroku config -s -a existing-heroku-app > config.txt
+```
+
+2. Review and push to another app
+
+```bash
+cat config.txt | tr '\n' ' ' | xargs heroku config:set -a new-heroku-app
+```
+
 ### htpasswd (for PHP apps)
 
 Create an `.htaccess` file in the webroot:
