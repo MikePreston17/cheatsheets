@@ -31,6 +31,17 @@ category: Git
     # go back to previous branch
       git checkout -
       
+## Merging
+
+    # prefer the version on the current branch
+    git merge $branchname -X ours
+    
+    # prefer the version of the branch being merged
+    git merge $branchname -X theirs.
+    
+    # abort a merge
+    git merge --abort
+
 ## Collaboration
 
     # Rebase your changes on top of the remote master
